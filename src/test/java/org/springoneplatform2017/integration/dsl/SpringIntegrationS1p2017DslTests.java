@@ -7,18 +7,18 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.PollableChannel;
 import org.springframework.messaging.support.GenericMessage;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * @author Artem Bilan
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@ContextConfiguration(classes = SpringIntegrationS1p2017Dsl.class)
 public class SpringIntegrationS1p2017DslTests {
 
 	@Autowired
@@ -37,4 +37,5 @@ public class SpringIntegrationS1p2017DslTests {
 
 		assertEquals("[A, B, C, D]", message.getPayload().toString());
 	}
+
 }
