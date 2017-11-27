@@ -1,12 +1,12 @@
 package org.springoneplatform2017.integration.dsl;
 
-		import org.springframework.context.annotation.Bean;
-		import org.springframework.context.annotation.Configuration;
-		import org.springframework.integration.channel.QueueChannel;
-		import org.springframework.integration.config.EnableIntegration;
-		import org.springframework.integration.dsl.IntegrationFlow;
-		import org.springframework.integration.dsl.IntegrationFlows;
-		import org.springframework.messaging.PollableChannel;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.integration.channel.QueueChannel;
+import org.springframework.integration.config.EnableIntegration;
+import org.springframework.integration.dsl.IntegrationFlow;
+import org.springframework.integration.dsl.IntegrationFlows;
+import org.springframework.messaging.PollableChannel;
 
 /**
  * @author Artem Bilan
