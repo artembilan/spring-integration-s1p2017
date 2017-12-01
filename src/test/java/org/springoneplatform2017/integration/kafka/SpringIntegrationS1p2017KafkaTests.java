@@ -49,6 +49,9 @@ public class SpringIntegrationS1p2017KafkaTests {
 
 	private static final String TEST_TOPIC = "testTopic";
 
+	/*
+	 * TODO Consider 'spring.kafka.embedded' Spring Boot configuration property
+	 */
 	@ClassRule
 	public static KafkaEmbedded kafkaEmbedded = new KafkaEmbedded(1, true, 1, TEST_TOPIC);
 
@@ -70,7 +73,7 @@ public class SpringIntegrationS1p2017KafkaTests {
 	}
 
 	@Test
-	public void testKafkaReactiveIntegration() throws InterruptedException {
+	public void testKafkaReactiveIntegration() {
 		this.template.sendDefault("foo");
 		this.template.sendDefault("bar");
 		this.template.sendDefault("baz");
@@ -126,7 +129,6 @@ public class SpringIntegrationS1p2017KafkaTests {
 		public ChannelMessageStore channelMessageStore(DataSource dataSource) {
 			JdbcChannelMessageStore jdbcChannelMessageStore = new JdbcChannelMessageStore(dataSource);
 			jdbcChannelMessageStore.setChannelMessageStoreQueryProvider(new HsqlChannelMessageStoreQueryProvider());
-			jdbcChannelMessageStore.setPriorityEnabled(true);
 			return jdbcChannelMessageStore;
 		}
 
