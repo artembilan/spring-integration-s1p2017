@@ -58,9 +58,14 @@ public class SpringIntegrationS1p2017TestingTests {
 	public void testIntegrationScenario() throws InterruptedException {
 		MessageSource<?> mockMessageSource =
 				MockIntegration.mockMessageSource(
-						new GenericMessage<>("{\"event\": \"myEvent\"}", Collections.singletonMap(MqttHeaders.RECEIVED_TOPIC, "events")),
-						new GenericMessage<>("{\"message\": \"myMessage\"}", Collections.singletonMap(MqttHeaders.RECEIVED_TOPIC, "messages")),
-						new GenericMessage<>("{\"event\": \"myEvent2\"}", Collections.singletonMap(MqttHeaders.RECEIVED_TOPIC, "events")));
+						new GenericMessage<>("{\"event\": \"myEvent\"}",
+								Collections.singletonMap(MqttHeaders.RECEIVED_TOPIC, "events")),
+
+						new GenericMessage<>("{\"message\": \"myMessage\"}",
+								Collections.singletonMap(MqttHeaders.RECEIVED_TOPIC, "messages")),
+
+						new GenericMessage<>("{\"event\": \"myEvent2\"}",
+								Collections.singletonMap(MqttHeaders.RECEIVED_TOPIC, "events")));
 
 		MockMessageHandler mockEventsMessageHandler =
 				MockIntegration.mockMessageHandler()
